@@ -1,0 +1,21 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: knitly-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: knitly
+      POSTGRES_USER: knitly
+      POSTGRES_PASSWORD: knitly
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - knitly-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  knitly-postgres-data:
+  
